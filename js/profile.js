@@ -11,7 +11,7 @@ export const renderId = (name, post) => {
 
 export const renderImage = () => {
     const image = document.createElement('img');
-    image.src = '/profileImg.png';
+    image.src = '/front-end-entrance-exam/profileImg.png';
     image.alt = 'profile image';
     image.classList.add('profile__avatar');
     return image;

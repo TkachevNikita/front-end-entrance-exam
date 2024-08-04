@@ -5,7 +5,7 @@ import html2pdf from 'html2pdf.js';
  * @returns {Promise<Response>}
  */
 export const fetchData = async () => {
-    return await fetch('/mockCv.json');
+    return await fetch('/front-end-entrance-exam/mockCv.json');
 };
 
 /**
@@ -30,31 +30,31 @@ export const getToolIconSrc = (tags) => {
     return tags.map((tag) => {
         switch (tag) {
             case 'figma':
-                return '/tools/logoFigma.svg';
+                return '/front-end-entrance-exam/tools/logoFigma.svg';
             case 'photoshop':
-                return '/tools/logoPs.svg';
+                return '/front-end-entrance-exam/tools/logoPs.svg';
             case 'illustrator':
-                return '/tools/logoLustra.svg';
+                return '/front-end-entrance-exam/tools/logoLustra.svg';
             case 'premier':
-                return '/tools/logoPremier.svg';
+                return '/front-end-entrance-exam/tools/logoPremier.svg';
             case 'notion':
-                return '/tools/logoNotion.svg';
+                return '/front-end-entrance-exam/tools/logoNotion.svg';
             case 'meet':
-                return '/tools/logoMeet.svg';
+                return '/front-end-entrance-exam/tools/logoMeet.svg';
             case 'zapier':
-                return '/tools/logoZapier.svg';
+                return '/front-end-entrance-exam/tools/logoZapier.svg';
             case 'webflow':
-                return '/tools/logoWebflow.svg';
+                return '/front-end-entrance-exam/tools/logoWebflow.svg';
             case 'framer':
-                return '/tools/logoFramer.svg';
+                return '/front-end-entrance-exam/tools/logoFramer.svg';
             case 'wordpress':
-                return '/tools/logoWordpress.svg';
+                return '/front-end-entrance-exam/tools/logoWordpress.svg';
             case 'chatgpt':
-                return '/tools/logoChatGPT.svg';
+                return '/front-end-entrance-exam/tools/logoChatGPT.svg';
             case 'copilot':
-                return '/tools/logoCopilot.svg';
+                return '/front-end-entrance-exam/tools/logoCopilot.svg';
             case 'midjourney':
-                return '/tools/logoMidjourney.svg';
+                return '/front-end-entrance-exam/tools/logoMidjourney.svg';
             default:
                 return '';
         }
@@ -109,7 +109,6 @@ export const saveData = () => {
     };
     saveToLocalStorage('cvData', updatedData);
 }
-
 
 /**
  * Скачивание PDF файла резюме
