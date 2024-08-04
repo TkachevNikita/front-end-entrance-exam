@@ -20,6 +20,9 @@ html, body {
 
 body {
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 ul {
@@ -43,6 +46,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    justify-content: center;
 }
 
 .row {
@@ -306,6 +310,22 @@ ul {
         }
     }
 
+}
+
+.download-btn {
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    color: var(--light-color);
+    background-color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.download-btn:hover {
+    background-color: var(--dark-primary-color);
 }
 
 @keyframes smoothFadeIn {

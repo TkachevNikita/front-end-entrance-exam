@@ -1,3 +1,5 @@
+import html2pdf from 'html2pdf.js';
+
 /**
  * Получение данных из mockCv.json
  * @returns {Promise<Response>}
@@ -59,17 +61,28 @@ export const getToolIconSrc = (tags) => {
     });
 };
 
-
+/**
+ * Запись данных в сторедж
+ * @param key
+ * @param data
+ */
 export const saveToLocalStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
 };
 
+/**
+ * Получчение данных из стореджа
+ * @param key
+ * @returns {any|null}
+ */
 export const loadFromLocalStorage = (key) => {
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : null;
 };
 
-
+/**
+ * Сохранение измененных данных
+ */
 export const saveData = () => {
     const updatedData = {
         name: document.querySelector('.profile__name').textContent,
@@ -95,4 +108,21 @@ export const saveData = () => {
         email: document.querySelector('.contact__email').textContent
     };
     saveToLocalStorage('cvData', updatedData);
+}
+
+/**
+ * Скачивание PDF файла резюме
+ */
+export const downloadPDF = () => {
+    const element = document.getElementById('root');
+
+    const opt = {
+        margin: [0.5, 1.2, 0, 0],
+        filename: 'download.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
 }
