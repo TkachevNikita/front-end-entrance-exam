@@ -9,6 +9,7 @@ export const renderExperiences = (experiences) => {
                     <div class="experience__item--container">
                         <div class="experience__item--head">
                             <span class="experience__item--date" contenteditable="true">${experience.period}</span>
+                            <button class="most-recent--btn">most recent</button>
                         </div>
                         <div class="experience__item--body">
                             <div class="job">
@@ -25,7 +26,17 @@ export const renderExperiences = (experiences) => {
                 </li>`).join('')}
         </ul>
     `;
-    return createCvBlock('experience', content);
+
+    const cvBlock = createCvBlock('experience', content);
+
+    cvBlock.querySelectorAll('.most-recent--btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const experienceItem = button.closest('.experience__item');
+            experienceItem.classList.toggle('most-recent');
+        });
+    });
+
+    return cvBlock;
 };
 
 export const renderTools = (tools) => {
@@ -44,10 +55,9 @@ export const renderTools = (tools) => {
                             <ul class="tools__category--list">
                                 ${getToolIconSrc(tool.tags).map((src) => {
                                     return `<li class="tools__category--item">
-                                        <img src="${src}" alt="${tool}" class="tool-icon">
-                                    </li>`;
+                                            <img src="${src}" alt="${tool}" class="tool-icon">
+                                        </li>`;
                                 }).join('')}
-                              
                             </ul>
                         </li>`
                 }).join('')}
