@@ -1,7 +1,16 @@
 'use strict';
 
 import '../css/style.css';
-import { downloadPDF, fetchData, loadFromLocalStorage, saveData, saveToLocalStorage } from "./utils.js";
+import '../css/media.css'
+import {
+    addAnimation, addElement,
+    downloadPDF,
+    fetchData,
+    loadFromLocalStorage,
+    removeElement,
+    saveData,
+    saveToLocalStorage
+} from "./utils.js";
 import { renderId, renderImage, renderLanguages } from "./profile.js";
 import { renderExperiences, renderTools } from "./skills.js";
 import { renderEducation, renderRideSide } from "./other.js";
@@ -33,26 +42,6 @@ const loadPage = async () => {
         renderSection('skills', [renderExperiences(data.experience), renderTools(data.tools)]);
         renderSection('other', [renderEducation(data.education), renderRideSide(data.interests, data.email)]);
     }
-};
-
-const addAnimation = (element) => {
-    element.classList.add('smooth-fade-in');
-    element.addEventListener('animationend', () => {
-        element.classList.remove('smooth-fade-in');
-    }, { once: true });
-};
-
-const addElement = (containerSelector, elementHTML) => {
-    const container = document.querySelector(containerSelector);
-    const newElement = document.createElement('div');
-    newElement.innerHTML = elementHTML;
-    container.appendChild(newElement.firstElementChild);
-    saveData();
-};
-
-const removeElement = (element) => {
-    element.remove();
-    saveData();
 };
 
 document.addEventListener('DOMContentLoaded', async () => {

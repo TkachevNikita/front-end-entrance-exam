@@ -126,3 +126,36 @@ export const downloadPDF = () => {
 
     html2pdf().set(opt).from(element).save();
 }
+
+/**
+ * Добавить анимацию на элемент
+ * @param element
+ */
+export const addAnimation = (element) => {
+    element.classList.add('smooth-fade-in');
+    element.addEventListener('animationend', () => {
+        element.classList.remove('smooth-fade-in');
+    }, { once: true });
+};
+
+/**
+ * Создание нового элемента списка
+ * @param containerSelector
+ * @param elementHTML
+ */
+export const addElement = (containerSelector, elementHTML) => {
+    const container = document.querySelector(containerSelector);
+    const newElement = document.createElement('div');
+    newElement.innerHTML = elementHTML;
+    container.appendChild(newElement.firstElementChild);
+    saveData();
+};
+
+/**
+ * Удаление элемента списка
+ * @param element
+ */
+export const removeElement = (element) => {
+    element.remove();
+    saveData();
+};
