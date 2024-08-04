@@ -1,7 +1,7 @@
 'use strict';
 
 import '../css/style.css';
-import {fetchData, loadFromLocalStorage, saveData, saveToLocalStorage} from "./utils.js";
+import {downloadPDF, fetchData, loadFromLocalStorage, saveData, saveToLocalStorage} from "./utils.js";
 import { renderId, renderImage, renderLanguages } from "./profile.js";
 import { renderExperiences, renderTools } from "./skills.js";
 import { renderEducation, renderRideSide } from "./other.js";
@@ -51,4 +51,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             saveData();
         });
     });
+
+    document.querySelector('.download-btn').addEventListener('click', downloadPDF);
 });
