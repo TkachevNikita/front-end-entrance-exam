@@ -44,7 +44,7 @@ export const renderEducation = (education) => {
                 <li class="education__item deletable" style="position: relative">
                     <div class="education__item--head">
                         <span class="education__date" contenteditable="true">${item.period}</span>
-                        <img src="/heart.svg" alt="favorite" class="education__favorite--btn">
+                        <img src="/front-end-entrance-exam/heart.svg" alt="favorite" class="education__favorite--btn">
                     </div>
                     <h3 class="education__title" contenteditable="true">${item.title}</h3>
                     <ul class="education__tags">
