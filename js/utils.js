@@ -104,7 +104,7 @@ export const saveData = () => {
             tags: Array.from(item.querySelectorAll('.education__tags--item')).map(tag => tag.textContent),
             place: item.querySelector('.education__place').textContent
         })),
-        interests: Array.from(document.querySelectorAll('.interests__item')).map(item => item.textContent),
+        interests: Array.from(document.querySelectorAll('.interests__item')).map(item => item.childNodes[0].textContent.trim()),
         email: document.querySelector('.contact__email').textContent
     };
     saveToLocalStorage('cvData', updatedData);

@@ -1,0 +1,50 @@
+@media (max-width: 805px) {
+    body {
+        display: block;
+    }
+
+    #root {
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 693px) {
+    .education__item {
+        width: 100% !important;
+    }
+
+    .experience__item {
+        width: 100% !important;
+    }
+
+    .profile {
+        flex-wrap: wrap;
+
+        .profile__avatar {
+            width: 100%;
+            height: 100%;
+        }
+
+        .profile__id,
+        .profile__language {
+            flex-basis: 100%;
+        }
+    }
+
+    .experience__item--body {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+
+    .competitions__list {
+        width: 100% !important;
+        padding-left: 15px;
+    }
+}
+
+@media(max-width: 577px) {
+    .experience__list {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}

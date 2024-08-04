@@ -5,10 +5,11 @@ export const renderExperiences = (experiences) => {
         <h2 class="cv-block__title">Experience</h2>
         <ul class="experience__list">
             ${experiences.map((experience) => `
-                <li class="experience__item">
+                <li class="experience__item deletable" style="position: relative">
                     <div class="experience__item--container">
                         <div class="experience__item--head">
                             <span class="experience__item--date" contenteditable="true">${experience.period}</span>
+                            <button class="most-recent--btn">most recent</button>
                         </div>
                         <div class="experience__item--body">
                             <div class="job">
@@ -22,11 +23,38 @@ export const renderExperiences = (experiences) => {
                             </div>
                         </div>
                     </div>
+                    <button class="delete-btn" style="position: absolute; top: -5px; right: -5px;">x</button>
                 </li>`).join('')}
         </ul>
+        <button class="add-btn" 
+            data-container=".experience__list" 
+            data-element-html="
+            <li class='experience__item deletable' style='position: relative'>
+                <div class='experience__item--container'>
+                    <div class='experience__item--head'>
+                    <span class='experience__item--date' contenteditable='true'>New Period</span>
+                    <button class='most-recent--btn'>most recent</button>
+                </div>
+                <div class='experience__item--body'>
+                    <div class='job'>
+                        <h3 class='job__title' contenteditable='true'>New Title</h3>
+                        <span class='job__place' contenteditable='true'>New Place</span>
+                    </div>
+                    <div class='competitions'>
+                        <ul class='competitions__list'>
+                            <li class='competitions__item' contenteditable='true'>New Competition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div><button class='delete-btn' style='position: absolute; top: -5px; right: -5px'>x</button></li>"
+        >
+            Add Experience
+        </button>
     `;
+
     return createCvBlock('experience', content);
 };
+
 
 export const renderTools = (tools) => {
     const content = `
@@ -44,10 +72,9 @@ export const renderTools = (tools) => {
                             <ul class="tools__category--list">
                                 ${getToolIconSrc(tool.tags).map((src) => {
                                     return `<li class="tools__category--item">
-                                        <img src="${src}" alt="${tool}" class="tool-icon">
-                                    </li>`;
+                                            <img src="${src}" alt="${tool}" class="tool-icon">
+                                        </li>`;
                                 }).join('')}
-                              
                             </ul>
                         </li>`
                 }).join('')}
