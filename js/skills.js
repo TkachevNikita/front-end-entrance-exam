@@ -23,7 +23,7 @@ export const renderExperiences = (experiences) => {
                             </div>
                         </div>
                     </div>
-                    <button class="delete-btn" style="position: absolute; top: -5px; right: -5px;">x</button>
+                    <button class="delete-btn">x</button>
                 </li>`).join('')}
         </ul>
         <button class="add-btn" 
@@ -46,7 +46,7 @@ export const renderExperiences = (experiences) => {
                         </ul>
                     </div>
                 </div>
-            </div><button class='delete-btn' style='position: absolute; top: -5px; right: -5px'>x</button></li>"
+            </div><button class='delete-btn'>x</button></li>"
         >
             Add Experience
         </button>
