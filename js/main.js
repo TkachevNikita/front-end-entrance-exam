@@ -1,6 +1,7 @@
 'use strict';
 
 import '../css/style.css';
+import '../css/media.css';
 import { downloadPDF, fetchData, loadFromLocalStorage, saveData, saveToLocalStorage } from "./utils.js";
 import { renderId, renderImage, renderLanguages } from "./profile.js";
 import { renderExperiences, renderTools } from "./skills.js";
@@ -82,6 +83,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (event.target.classList.contains('delete-btn')) {
             const element = event.target.closest('.deletable');
             removeElement(element);
+        }
+
+        if (event.target.classList.contains('education__favorite--btn')) {
+            const element = event.target.closest('.education__item');
+            element.classList.toggle('favorite');
         }
     });
 });

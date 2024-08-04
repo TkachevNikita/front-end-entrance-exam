@@ -137,6 +137,8 @@ ul {
 }
 
 .skills {
+    max-height: 75vh;
+
     .experience__list {
         display: flex;
         flex-direction: column;
@@ -197,6 +199,7 @@ ul {
         display: flex;
         flex-direction: column;
         gap: 12px;
+        overflow: auto;
 
         .tools__categories {
             display: flex;
@@ -249,6 +252,11 @@ ul {
     .education {
         width: 50%;
 
+        .education__item--head {
+            display: flex;
+            justify-content: space-between;
+        }
+
         .education__list {
             display: flex;
             justify-content: space-between;
@@ -261,7 +269,12 @@ ul {
                 border-radius: 10px;
                 padding: 8px;
                 width: 116px;
+                transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
             }
+        }
+
+        .education__favorite--btn {
+            cursor: pointer;
         }
 
         .education__date,
@@ -284,6 +297,17 @@ ul {
 
         .education__place {
             font-size: 8px;
+        }
+
+        .favorite {
+            background-color: var(--primary-color) !important;
+            .education__title,
+            .education__tags--item,
+            .education__date,
+            .education__place {
+                color: var(--light-color) !important;
+
+            }
         }
     }
 

@@ -42,7 +42,10 @@ export const renderEducation = (education) => {
         <ul class="education__list">
             ${education.map((item) => `
                 <li class="education__item deletable" style="position: relative">
-                    <span class="education__date" contenteditable="true">${item.period}</span>
+                    <div class="education__item--head">
+                        <span class="education__date" contenteditable="true">${item.period}</span>
+                        <img src="/heart.svg" alt="favorite" class="education__favorite--btn">
+                    </div>
                     <h3 class="education__title" contenteditable="true">${item.title}</h3>
                     <ul class="education__tags">
                         ${item.tags.map((tag) => `<li class="education__tags--item" contenteditable="true">${tag}</li>`).join('')}
