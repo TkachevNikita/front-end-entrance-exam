@@ -1,7 +1,6 @@
 'use strict';
 
 import '../css/style.css';
-import '../css/media.css';
 import { downloadPDF, fetchData, loadFromLocalStorage, saveData, saveToLocalStorage } from "./utils.js";
 import { renderId, renderImage, renderLanguages } from "./profile.js";
 import { renderExperiences, renderTools } from "./skills.js";
