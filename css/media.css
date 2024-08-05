@@ -43,6 +43,10 @@
 }
 
 @media(max-width: 577px) {
+    body {
+        margin: 5px;
+    }
+
     .experience__list {
         overflow-x: hidden;
         overflow-y: auto;
