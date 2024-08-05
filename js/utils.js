@@ -113,7 +113,7 @@ export const saveData = () => {
 /**
  * Скачивание PDF файла резюме
  */
-export const downloadPDF = () => {
+export const downloadPDF = async () => {
     const element = document.getElementById('root');
 
     const opt = {
@@ -121,10 +121,18 @@ export const downloadPDF = () => {
         filename: 'download.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
 
-    html2pdf().set(opt).from(element).save();
+    console.log(document.querySelectorAll('.delete-btn'));
+
+    toggleHtmlElements(document.querySelectorAll('.delete-btn'));
+    toggleHtmlElements(document.querySelectorAll('.add-btn'));
+
+    await html2pdf().set(opt).from(element).save();
+
+    toggleHtmlElements(document.querySelectorAll('.delete-btn'));
+    toggleHtmlElements(document.querySelectorAll('.add-btn'));
 }
 
 /**
@@ -159,3 +167,10 @@ export const removeElement = (element) => {
     element.remove();
     saveData();
 };
+
+
+const toggleHtmlElements = (elements) => {
+    elements.forEach(element => {
+        element.style.display = (element.style.display === 'none') ? '' : 'none';
+    });
+}
