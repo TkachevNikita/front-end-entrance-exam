@@ -14,6 +14,7 @@ import {
 import { renderId, renderImage, renderLanguages } from "./profile.js";
 import { renderExperiences, renderTools } from "./skills.js";
 import { renderEducation, renderRideSide } from "./other.js";
+import {createRipple} from "./ripple.js";
 
 const root = document.querySelector('#root');
 
@@ -59,6 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.body.addEventListener('click', (event) => {
         if (event.target.classList.contains('most-recent--btn')) {
             const experienceItem = event.target.closest('.experience__item');
+            createRipple(event, experienceItem);
             experienceItem.classList.toggle('most-recent');
         }
 
@@ -75,6 +77,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (event.target.classList.contains('education__favorite--btn')) {
             const element = event.target.closest('.education__item');
+            createRipple(event, element)
             element.classList.toggle('favorite');
         }
     });

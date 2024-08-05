@@ -124,8 +124,6 @@ export const downloadPDF = async () => {
         jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
 
-    console.log(document.querySelectorAll('.delete-btn'));
-
     toggleHtmlElements(document.querySelectorAll('.delete-btn'));
     toggleHtmlElements(document.querySelectorAll('.add-btn'));
 
